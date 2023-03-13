@@ -35,6 +35,9 @@ const BreakdownChart = ({ isDashboard = false }) => {
         minWidth={isDashboard ? "325px" : undefined}
         position="relaltive"
     >
+        <Typography variant='h6' color={theme.palette.secondary[400]}>
+            {!isDashboard && "Total:"} ${data.yearlySalesTotal}
+        </Typography>
         <ResponsivePie
         data={formattedData}
         theme={{
@@ -127,23 +130,6 @@ const BreakdownChart = ({ isDashboard = false }) => {
             }
         ]}
     />
-    <Box
-        position="absolute"
-        top="50%"
-        left="50%"
-        color={theme.palette.secondary[400]}
-        textAlign="center"
-        pointerEvents="none"
-        sx={{
-            transform: isDashboard ?
-            "translate(-75%,-170%)" :
-            "translate(90%,250%)"
-        }}
-    >
-        <Typography variant='h6'>
-            {!isDashboard && "Total:"} ${data.yearlySalesTotal}
-        </Typography>
-    </Box>
     </Box>
   )
 }
